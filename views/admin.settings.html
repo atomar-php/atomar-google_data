@@ -1,0 +1,65 @@
+{% extends "admin/_base.html" %}
+
+{% block title %}Google Data{% endblock %}
+
+{% block content %}
+<div class="jumbotron hidden-phone">
+    <h1>Google Data</h1>
+
+    <p>This is where you can configure the different settings for the Google Data extension.</p>
+</div>
+<form action="/admin/google_data" method="POST">
+    <div class="panel panel-default">
+        <div class="panel-heading">General Settings</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="api-token">API Token
+                            <small>get one from the <a href="https://console.developers.google.com" target="_blank">Developers
+                                Console</a></small>
+                        </label>
+                        <input id="api-token" type="text" class="form-control" name="api_token" value="{{ api_token }}">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="cache-lifetime">Cache Lifetime <span class="glyphicon glyphicon-question-sign tip"
+                                                                         title="How long in seconds the calendar information will be cached."></span></label>
+                        <input id="cache-lifetime" type="number" class="form-control" name="cache_lifetime"
+                               value="{{ cache_lifetime }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Upcoming Events Feed</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="calendar-id">Calendar Id <span class="glyphicon glyphicon-question-sign tip"
+                                                                   title="This email must have at least one public calendar."></span></label>
+                        <input id="calendar-id" type="email" class="form-control" name="calendar" value="{{ calendar }}"
+                               placeholder="youremail@gmail.com">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="feed-limit">Max Events <span class="glyphicon glyphicon-question-sign tip"
+                                                                 title="The maximum number of calendar events that will be displayed in the feed."></span></label>
+                        <input id="feed-limit" type="number" class="form-control" name="feed_limit"
+                               value="{{ feed_limit }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary pull-right">Save Settings</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

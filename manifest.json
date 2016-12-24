@@ -1,0 +1,6 @@
+{
+  "name": "Google Data",
+  "description": "Provides some APIs to connect to numerous Google Services specifically google calendar",
+  "version": "2.0",
+  "core": "5.x"
+}
